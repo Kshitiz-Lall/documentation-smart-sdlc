@@ -10,7 +10,17 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Extend default Next.js and TypeScript rules
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  // Custom rule overrides
+  {
+    files: ["**/*.js", "**/*.ts", "**/*.tsx"],
+    rules: {
+      "import/no-anonymous-default-export": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

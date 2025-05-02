@@ -5,8 +5,19 @@ const withNextra = nextra({
   // ... Add Nextra-specific options here
 });
 
+const nextConfig = {
+  output: "export",
+  basePath: "/documentation-smart-sdlc",
+  assetPrefix: "/documentation-smart-sdlc/",
+  images: {
+    unoptimized: true, // mandatory, otherwise won't export
+  },
+  // Optional: Change the output directory `out` -> `dist`
+  // distDir: "build"
+};
+
 // Export the final Next.js config with Nextra included
-export default withNextra({
+export default withNextra(nextConfig, {
   turbopack: {
     resolveAlias: {
       // Path to your `mdx-components` file with extension
